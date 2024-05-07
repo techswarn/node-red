@@ -4,7 +4,7 @@ FROM nodered/node-red
 # of your added nodes modules for Node-RED
 
 COPY package.json /data
-RUN npm install
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 # WORKDIR /usr/src/node-red
 COPY ./ ./
 
@@ -16,4 +16,4 @@ COPY ./ ./
 # COPY flows_cred.json /data/flows_cred.json
 # COPY flows.json /data/flows.json
 
-CMD [ "node-red", "start" ]
+CMD [ "npm", "run", "start" ]
