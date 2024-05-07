@@ -6,6 +6,8 @@ FROM nodered/node-red
 COPY package.json /data
 RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 # WORKDIR /usr/src/node-red
+
+COPY csv/ /csv
 COPY ./ ./
 
 # # Copy _your_ Node-RED project files into place
